@@ -1,0 +1,8 @@
+#!/usr/bin/env/ruby
+
+require 'sephora_scraper'
+require 'pry-byebug'
+
+
+
+# require_relative './lib/sephora_scraper.rb'
