@@ -10,11 +10,7 @@ class SephoraScraper::CLI
 
     def list_products
       puts "Today's new beauty arrivals:"
-      puts <<-DOC
-      1. Vivid Liquid Eyeliner Trio - Fenty Beauty by Rihanna
-      2. Neon Obsessions Palette - Huda Beauty
-      DOC
-      @scraper = SephoraScraper::Scraper.today
+      @beauties = Beauty.today
     end
 
     def selection

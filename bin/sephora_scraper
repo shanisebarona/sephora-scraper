@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-require './lib/sephora_scraper'
+require "bundler/setup"
+require "sephora_scraper"
 
 SephoraScraper::CLI.new.call

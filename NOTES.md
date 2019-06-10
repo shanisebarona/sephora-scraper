@@ -28,3 +28,9 @@ Each product shoud have:
 - require both watir and webdrivers in irb and `Watir::Browser.new` instantiates a new broswer session. 
 - how to update $PATH
 - giving bash permission to execute the bin file
+- `shift + option + down or up arrow` duplicates the line and puts the dupe either above or below
+- `option + cmd + arrow` multiline cursor, edits multiple lines at a time
+
+## Challenges
+- figuring out how to the heck to put something ON my $PATH
+- in avi's video, it let him do GemName::MainFile, but it did't let me do that. instead of `SephoraScraper::Beauty`, I just called `Beauty` and that seem to work fine. 
