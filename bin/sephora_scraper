@@ -1,8 +1,5 @@
-#!/usr/bin/env/ruby
+#!/usr/bin/env ruby
 
-require 'sephora_scraper'
-require 'pry-byebug'
+require './lib/sephora_scraper'
 
-
-
-# require_relative './lib/sephora_scraper.rb'
+SephoraScraper::CLI.new.call

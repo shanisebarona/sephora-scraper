@@ -12,5 +12,4 @@ class Scraper
     browser.divs(class: 'css-ix8km1')
   end
 
-
-end 
+end
