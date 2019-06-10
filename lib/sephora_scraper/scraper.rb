@@ -4,9 +4,12 @@ require 'nokogiri'
 require 'open-uri'
 require 'webdrivers'
 
-class Scraper
+class SephoraScraper::Scraper
 
-  def self.scrape_makeup
+  def self.today 
+    #I should return a bunch of instances of products
+
+  def self.scrape_prodcucts
     browser = Watir::Browser.new(:chrome)
     browser.goto("https://www.sephora.com/beauty/new-beauty-products")
     browser.divs(class: 'css-ix8km1')
