@@ -10,22 +10,20 @@ class Beauty
 
   def self.today
     # Should reutrn a bunch of instances of beauty products
-    # puts <<-DOC
-    #   1. Vivid Liquid Eyeliner Trio - Fenty Beauty by Rihanna
-    #   2. Neon Obsessions Palette - Huda Beauty
-    #   DOC
+    self.scrape_beauty
+  end
 
-      beauty_1 = Beauty.new
-      beauty_1.name = "Vivid Liquid Eyeliner Trio - Fenty Beauty by Rihanna"
-      beauty_1.price = "$35.00"
-      beauty_1.availability = true
-      beauty_1.url = "https://www.sephora.com/product/vivid-liquid-eyeliner-trio-P19487263?icid2=justarrived_us_skugrid_ufe:p19487263:product"
-
-      beauty_2 = Beauty.new
-      beauty_2.name = "Neon Obsessions Palette - Huda Beauty"
-      beauty_2.price = "$29.00"
-      beauty_2.availability = true
-      beauty_2.url = "https://www.sephora.com/product/neon-obsessions-eyeshadow-palette-P445732?icid2=justarrived_us_skugrid_ufe:p445732:product"
+  def self.scrape_beauty
+    beauties = []
+    # Go to Sephora, find the beauties
+    # extract the properties
+    # instantiate a deal
+    # an array of products just scraped that get pushed into [beauties]
+    browser = Watir::Browser.new(:chrome)
+    browser.goto("https://www.sephora.com/beauty/new-beauty-products")
+    binding.pry
+    browser.divs(class: 'css-ir5tdx')
+    browser.close
 
   end
 
