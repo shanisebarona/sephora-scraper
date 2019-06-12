@@ -27,13 +27,6 @@ class Beauty
       beauty_2.availability = true
       beauty_2.url = "https://www.sephora.com/product/neon-obsessions-eyeshadow-palette-P445732?icid2=justarrived_us_skugrid_ufe:p445732:product"
 
-      [beauty_1, beauty_2]
-  end
-
-  def self.scrape_makeup
-    browser = Watir::Browser.new(:chrome)
-    browser.goto("https://www.sephora.com/beauty/new-beauty-products")
-    browser.divs(class: 'css-ix8km1')
   end
 
 end
