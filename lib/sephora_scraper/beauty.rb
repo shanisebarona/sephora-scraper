@@ -23,6 +23,7 @@ class Beauty
     browser.goto("https://www.sephora.com/beauty/new-beauty-products")
     binding.pry
     browser.divs(class: 'css-ir5tdx')
+    webpage = Nokogiri::HTML(browser.html)
     browser.close
 
   end

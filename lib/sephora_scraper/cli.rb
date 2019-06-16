@@ -11,7 +11,7 @@ class SephoraScraper::CLI
     def list_products
       puts "Today's new beauty arrivals:"
       @beauties = Beauty.today
-git s      @beauties.each.with_index(1) do |beauty, i|
+      @beauties.each.with_index(1) do |beauty, i|
         puts "#{i}. #{beauty.name} - #{beauty.price} - #{beauty.availability}"
       end
     end
