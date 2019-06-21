@@ -10,9 +10,10 @@ class SephoraScraper::CLI
 
     def list_products
       puts "Today's new beauty arrivals:"
-      @beauties = Beauty.today
+      # binding.pry
+      @beauties = SephoraScraper::Beauty.today
       @beauties.each.with_index(1) do |beauty, i|
-        puts "#{i}. #{beauty.name} - #{beauty.price} - #{beauty.availability}"
+        puts "#{i}. #{beauty.brand} - #{beauty.name} - #{beauty.price} - #{beauty.url}"
       end
     end
 
@@ -26,7 +27,7 @@ class SephoraScraper::CLI
           puts @beauties[input.to_i-1]
         elsif input == "list"
           puts list_products
-        else
+        else #elsif input != "exit"
           puts "Oops, that was an inccorect selection. Type list or exit."
         end
       end

@@ -1,31 +1,34 @@
-require 'pry'
-require 'watir'
-require 'nokogiri'
-require 'open-uri'
-require 'webdrivers'
 
-class Beauty
+class SephoraScraper::Beauty
 
-  attr_accessor :name, :price, :availability, :url
+  attr_accessor :name, :brand, :price, :url
 
-  def self.today
-    # Should reutrn a bunch of instances of beauty products
-    self.scrape_beauty
+  def self.scrape_sephora
+    browser = Watir::Browser.new(:chrome, headless: true)
+    browser.goto("https://www.sephora.com/beauty/new-beauty-products")
+    
+    beauty = self.new
+    beauty.brand = browser.span(class: 'css-ktoumz').text
+    beauty.name = browser.span(class: 'css-pelz90').text
+    beauty.price = browser.span(class: 'css-0').text
+    beauty.url = browser.a(class: 'css-ix8km1').href
+
+    beauty
+  end
+  
+  def self.scrape_beauties
+    beauties = []
+    beauties << self.scrape_sephora
+    beauties
+    # binding.pry
   end
 
-  def self.scrape_beauty
-    beauties = []
-    # Go to Sephora, find the beauties
-    # extract the properties
-    # instantiate a deal
-    # an array of products just scraped that get pushed into [beauties]
-    browser = Watir::Browser.new(:chrome)
-    browser.goto("https://www.sephora.com/beauty/new-beauty-products")
-    binding.pry
-    browser.divs(class: 'css-ir5tdx')
-    webpage = Nokogiri::HTML(browser.html)
-    browser.close
+  def self.today
+    self.scrape_beauties
+  end
 
+  def self.unmount
+    browser.close
   end
 
 end
