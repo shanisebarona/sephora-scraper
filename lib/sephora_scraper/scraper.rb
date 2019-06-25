@@ -5,7 +5,7 @@ class SephoraScraper::Scraper
   def self.scrape_sephora
     browser = Watir::Browser.new(:chrome, headless: true)
     browser.goto("https://www.sephora.com/beauty/new-beauty-products")
-    binding.pry
+
     products  = browser.divs(class: 'css-ir5tdx')
     products.each do |product| 
       brand = product.span(class: 'css-ktoumz').text
@@ -17,8 +17,14 @@ class SephoraScraper::Scraper
     end
   end
 
-  def self.scrape_beauties(beauty)
-    
+  def self.scrape_beauties(beauty) 
+    #scraping for product descriptions
+    go to the product url 
+    scrape for 'description' #class="css-pz80c5"
+    how to use #class="css-pz80c5"
+    ingredients # class="css-pz80c5"
+    about the brand #class="css-8pqdh0 "
+    stars rating #class="css-1eqf5yr" .text
   end
   
 
