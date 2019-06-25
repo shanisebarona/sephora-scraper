@@ -2,19 +2,17 @@
 
 class SephoraScraper::CLI
 
-    def call
+    def call 
+      #SephoraScraper::Scraper.getProducts
       list_products
       selection
       goodbye
     end
 
-    def list_products
+    def list_products #SS::Beauty.all, iterate over that
       puts "Today's new beauty arrivals:"
-      # binding.pry
-      @beauties = SephoraScraper::Beauty.today
-      @beauties.each.with_index(1) do |beauty, i|
-        puts "#{i}. #{beauty.brand} - #{beauty.name} - #{beauty.price} - #{beauty.url}"
-      end
+      SephoraScraper::Beauty.all
+      binding.pry
     end
 
     def selection
