@@ -19,12 +19,13 @@ class SephoraScraper::Scraper
 
   def self.scrape_beauties(beauty) 
     #scraping for product descriptions
-    go to the product url 
-    scrape for 'description' #class="css-pz80c5"
-    how to use #class="css-pz80c5"
-    ingredients # class="css-pz80c5"
-    about the brand #class="css-8pqdh0 "
-    stars rating #class="css-1eqf5yr" .text
+    browser.goto beauty.url #go to the product url 
+    binding.pry
+    beauty.description = browser.divs(class: 'css-pz80c5') # scrape for 'description' #class="css-pz80c5"
+    beauty.uses = browser.divs(class: 'css-pz80c5') # how to use #class="css-pz80c5"
+    beauty.ingredients = browser.divs(class: 'css-pz80c5') # ingredients # class="css-pz80c5"
+    beauty.about = browser.divs(class: 'css-8pqdh0') # about the brand #class="css-8pqdh0 "
+    beauty.rating = browser.divs(class: 'css-1eqf5yr').text # stars rating #class="css-1eqf5yr" 
   end
   
 

@@ -12,7 +12,7 @@ class SephoraScraper::CLI
     def list_products #SS::Beauty.all, iterate over that
       puts "Today's new beauty arrivals:"
       SephoraScraper::Beauty.all
-      binding.pry
+      
     end
 
     def selection
