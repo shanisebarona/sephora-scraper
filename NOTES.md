@@ -13,8 +13,6 @@
 
 Bonus: Let user select "random" to receive output of a random beauty product chosen for them
 
-
-## Freewrite
 Each product shoud have:
 - a name & brand name
 - price 
@@ -30,7 +28,8 @@ Each product shoud have:
 - giving bash permission to execute the bin file
 - `shift + option + down or up arrow` duplicates the line and puts the dupe either above or below
 - `option + cmd + arrow` multiline cursor, edits multiple lines at a time
-- always be commiting. push your changes, no matter how small. 
+- always be commiting. push your changes, no matter how small.
+- case statements! when comparing something mutliple times in an if/else, it's better to use a case statement.
 
 ## Challenges
 - figuring out how to the heck to put something ON my $PATH

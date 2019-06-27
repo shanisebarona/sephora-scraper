@@ -38,17 +38,19 @@ class SephoraScraper::CLI
 
     def selection
       input = nil
-      while input != "exit" 
-        puts "Enter the number of the beauty product you'd like more info on. Enter list to return to the beauty list.  (or type exit):"
-        input = gets.strip.downcase
+      puts "Enter the number of the beauty product you'd like more info on. Enter list to return to the beauty list.  (or type exit):"
+      input = gets.strip.downcase
 
-        if input.to_i > 0
-          puts SephoraScraper::Beauty.all[input.to_i-1]
-        elsif input == "list"
-          puts list_products
-        elsif input != "exit"
-          puts "Oops, that was an inccorect selection. Type list or exit."
-        end
+      case input 
+      when input.to_i > 0
+        #something, maybe a diff method all together
+        #puts SephoraScraper::Beauty.all[input.to_i-1]
+      when "list" 
+        list_products
+      when "exit", "quit"
+        #something
+      else 
+        puts "Oops, that was an inccorect selection. Type list or exit."
       end
     end
 
