@@ -1,5 +1,4 @@
 
-
 class SephoraScraper::Scraper
 
   def self.scrape_sephora
@@ -19,7 +18,7 @@ class SephoraScraper::Scraper
 
   def self.scrape_beauties(beauty) 
     #scraping for product descriptions
-    browser.goto beauty.url #go to the product url 
+    browser.goto(beauty.url) #go to the product url 
     binding.pry
     beauty.description = browser.divs(class: 'css-pz80c5') # scrape for 'description' #class="css-pz80c5"
     beauty.uses = browser.divs(class: 'css-pz80c5') # how to use #class="css-pz80c5"
