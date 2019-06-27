@@ -2,8 +2,9 @@
 
 class SephoraScraper::CLI
 
-    def call 
-      get_products
+    def call #things that should only happen once
+      puts "Welcome! Take a look at today's new beauty arrivals: 💄"
+      get_products #scrapes products 
       list_products
       # get_descriptions
       selection
@@ -16,7 +17,6 @@ class SephoraScraper::CLI
     end
 
     def list_products #SS::Beauty.all, iterate over that
-      puts "Today's new beauty arrivals:"
       SephoraScraper::Beauty.all.each.with_index(1) do |product, index|
         puts "#{index}. #{product.name} by #{product.brand}."
       end
@@ -53,7 +53,7 @@ class SephoraScraper::CLI
     end
 
     def goodbye 
-      puts "Bye, check in tomorrow for more beauty arrivals!"
+      puts "Bye, check in tomorrow for more beauty arrivals! 💋 "
     end
 
   end 
