@@ -59,6 +59,4 @@ class SephoraScraper::CLI
       puts "Bye, check in tomorrow for more beauty arrivals! 💋 "
     end
 
-    #just an example
-
   end 
