@@ -1,7 +1,7 @@
 
 class SephoraScraper::Scraper
 
-  def self.scrape_sephora
+  def self.product_list
     browser = Watir::Browser.new(:chrome, headless: true)
     browser.goto("https://www.sephora.com/beauty/new-beauty-products")
 
@@ -16,15 +16,15 @@ class SephoraScraper::Scraper
     end
   end
 
-  def self.scrape_beauties(beauty) 
+  def self.product_description(product) 
     #scraping for product descriptions
     browser.goto(beauty.url) #go to the product url 
     binding.pry
-    beauty.description = browser.divs(class: 'css-pz80c5') # scrape for 'description' #class="css-pz80c5"
-    beauty.uses = browser.divs(class: 'css-pz80c5') # how to use #class="css-pz80c5"
-    beauty.ingredients = browser.divs(class: 'css-pz80c5') # ingredients # class="css-pz80c5"
-    beauty.about = browser.divs(class: 'css-8pqdh0') # about the brand #class="css-8pqdh0 "
-    beauty.rating = browser.divs(class: 'css-1eqf5yr').text # stars rating #class="css-1eqf5yr" 
+    product.description = browser.divs(class: 'css-pz80c5') # scrape for 'description' #class="css-pz80c5"
+    product.uses = browser.divs(class: 'css-pz80c5') # how to use #class="css-pz80c5"
+    product.ingredients = browser.divs(class: 'css-pz80c5') # ingredients # class="css-pz80c5"
+    product.about = browser.divs(class: 'css-8pqdh0') # about the brand #class="css-8pqdh0 "
+    product.rating = browser.divs(class: 'css-1eqf5yr').text # stars rating #class="css-1eqf5yr" 
   end
   
 

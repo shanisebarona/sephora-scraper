@@ -13,7 +13,7 @@ class SephoraScraper::CLI
     end
 
     def get_products
-      SephoraScraper::Scraper.scrape_sephora
+      SephoraScraper::Scraper.product_list
     end
 
     def list_products #SS::Beauty.all, iterate over that
@@ -23,7 +23,7 @@ class SephoraScraper::CLI
     end
 
     def get_descriptions
-      # SephoraScraper::Scraper.scrape_beauties()
+      # SephoraScraper::Scraper.product_description(product)
     end
 
 
