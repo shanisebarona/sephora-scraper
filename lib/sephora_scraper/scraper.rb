@@ -12,7 +12,7 @@ class SephoraScraper::Scraper
       price = product.span(class: 'css-0').text
       url = product.a(class: 'css-ix8km1').href
 
-      SephoraScraper::Beauty.new(brand, name, price, url)
+      SephoraScraper::Product.new(brand, name, price, url)
     end
   end
 

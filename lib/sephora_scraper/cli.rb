@@ -17,7 +17,7 @@ class SephoraScraper::CLI
     end
 
     def list_products #SS::Beauty.all, iterate over that
-      SephoraScraper::Beauty.all.each.with_index(1) do |product, index|
+      SephoraScraper::Product.all.each.with_index(1) do |product, index|
         puts "#{index}. #{product.name} by #{product.brand}."
       end
     end
@@ -28,7 +28,7 @@ class SephoraScraper::CLI
 
 
   def list_descriptions
-    SephoraScraper::Beauty.all.each.with_index(1) do |product, index|
+    SephoraScraper::Product.all.each.with_index(1) do |product, index|
       input = gets.strip
       if input == index
         puts "#{product.name} - #{product.brand}. #{product.price} #{product.description} #{product.uses} #{product.ingredients} #{product.about} #{product.rating}"

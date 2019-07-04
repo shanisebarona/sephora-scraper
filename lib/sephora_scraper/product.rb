@@ -1,5 +1,5 @@
 
-class SephoraScraper::Beauty
+class SephoraScraper::Product
   attr_accessor :brand, :name, :price, :url
   @@all = [] 
 
