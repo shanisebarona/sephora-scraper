@@ -11,12 +11,13 @@ class SephoraScraper::Product
     save #as obj init, pushed into @@all arr 
   end
 
-  def save
-    @@all << self
+  def self.all 
+    SephoraScraper::Scraper.product_list if @@all.empty?
+    @@all
   end
 
-  def self.all 
-    @@all
+  def save
+    @@all << self
   end 
   
 end

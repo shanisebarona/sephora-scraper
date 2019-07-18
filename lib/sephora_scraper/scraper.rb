@@ -11,14 +11,13 @@ class SephoraScraper::Scraper
       name = product.span(class: 'css-pelz90').text
       price = product.span(class: 'css-0').text
       url = product.a(class: 'css-ix8km1').href
-
-      SephoraScraper::Product.new(brand, name, price, url)
+      SephoraScraper::Product.new(brand, name, price, url) 
     end
   end
 
   def self.product_description(product) 
     #scraping for product descriptions
-    browser.goto(beauty.url) #go to the product url 
+    browser.goto(product.url) #go to the product url 
     binding.pry
     product.description = browser.divs(class: 'css-pz80c5') # scrape for 'description' #class="css-pz80c5"
     product.uses = browser.divs(class: 'css-pz80c5') # how to use #class="css-pz80c5"
