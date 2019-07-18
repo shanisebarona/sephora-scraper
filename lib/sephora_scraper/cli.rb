@@ -44,7 +44,7 @@ class SephoraScraper::CLI
       case input 
       when input.to_i > 0 # 1...20.
         #something, maybe a diff method all together
-        #puts SephoraScraper::Beauty.all[input.to_i-1]
+        #puts SephoraScraper::Product.all[input.to_i-1]
       when "list" 
         list_products
       when "exit", "quit"

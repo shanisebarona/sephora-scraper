@@ -3,7 +3,7 @@
 # other dependencies
 
 require_relative './sephora_scraper/version'
-require_relative './sephora_scraper/beauty'
+require_relative './sephora_scraper/product'
 require_relative './sephora_scraper/cli'
 require_relative './sephora_scraper/scraper'
 
