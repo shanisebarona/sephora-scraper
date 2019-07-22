@@ -1,5 +1,5 @@
 
-class SephoraScraper::Beauty
+class SephoraScraper::Product
   attr_accessor :brand, :name, :price, :url
   @@all = [] 
 
@@ -8,15 +8,16 @@ class SephoraScraper::Beauty
     @name = name
     @price = price
     @url = url 
-    save #as obj init, pushed into @@all arr 
-  end
-
-  def save
-    @@all << self
+    save
   end
 
   def self.all 
     @@all
+  end
+
+  def save
+    @@all << self
+    #add validation, only save if attr are filled out
   end 
   
 end

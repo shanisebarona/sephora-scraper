@@ -1,10 +1,12 @@
-#Our CLI controller
+#CLI controller
 
 class SephoraScraper::CLI
+  @@blu="\e[1;34m"
+  @@white="\e[0m"
 
-    def call #things that should only happen once
-      puts "Welcome! Take a look at today's new beauty arrivals: 💄"
-      get_products #scrapes products 
+    def call 
+      puts "#{@@blu}Welcome! Take a look at today's new beauty arrivals:💄#{@@white}"
+      get_products
       list_products
       # get_descriptions
       selection
@@ -13,22 +15,23 @@ class SephoraScraper::CLI
     end
 
     def get_products
-      SephoraScraper::Scraper.scrape_sephora
+      SephoraScraper::Scraper.product_list
+      binding.pry
     end
 
-    def list_products #SS::Beauty.all, iterate over that
-      SephoraScraper::Beauty.all.each.with_index(1) do |product, index|
+    def list_products 
+      SephoraScraper::Product.all.each.with_index(1) do |product, index|
         puts "#{index}. #{product.name} by #{product.brand}."
       end
     end
 
-    def get_descriptions
-      # SephoraScraper::Scraper.scrape_beauties()
-    end
+    # def get_descriptions
+    #   SephoraScraper::Scraper.product_description(product)
+    # end
 
 
   def list_descriptions
-    SephoraScraper::Beauty.all.each.with_index(1) do |product, index|
+    @products.each.with_index(1) do |product, index|
       input = gets.strip
       if input == index
         puts "#{product.name} - #{product.brand}. #{product.price} #{product.description} #{product.uses} #{product.ingredients} #{product.about} #{product.rating}"
@@ -44,7 +47,7 @@ class SephoraScraper::CLI
       case input 
       when input.to_i > 0 # 1...20.
         #something, maybe a diff method all together
-        #puts SephoraScraper::Beauty.all[input.to_i-1]
+        #puts SephoraScraper::Product.all[input.to_i-1]
       when "list" 
         list_products
       when "exit", "quit"
