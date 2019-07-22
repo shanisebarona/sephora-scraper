@@ -2,17 +2,19 @@
 class SephoraScraper::Scraper
 
   def self.product_list
-    browser = Watir::Browser.new(:chrome, headless: true)
+    browser = Watir::Browser.new
     browser.goto("https://www.sephora.com/beauty/new-beauty-products")
 
-    products  = browser.divs(class: 'css-ir5tdx')
+    products  = browser.divs(class: 'css-1s223mm') #css-dkxsdo #css-ir5tdx
     products.each do |product| 
+      # binding.pry
       brand = product.span(class: 'css-ktoumz').text
       name = product.span(class: 'css-pelz90').text
       price = product.span(class: 'css-0').text
       url = product.a(class: 'css-ix8km1').href
       SephoraScraper::Product.new(brand, name, price, url) 
     end
+    # binding.pry
   end
 
   def self.product_description(product) 

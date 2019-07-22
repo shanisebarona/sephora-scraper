@@ -8,16 +8,16 @@ class SephoraScraper::Product
     @name = name
     @price = price
     @url = url 
-    save #as obj init, pushed into @@all arr 
+    save
   end
 
   def self.all 
-    SephoraScraper::Scraper.product_list if @@all.empty?
     @@all
   end
 
   def save
     @@all << self
+    #add validation, only save if attr are filled out
   end 
   
 end

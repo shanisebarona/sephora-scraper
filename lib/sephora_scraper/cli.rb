@@ -1,10 +1,12 @@
-#Our CLI controller
+#CLI controller
 
 class SephoraScraper::CLI
+  @@blu="\e[1;34m"
+  @@white="\e[0m"
 
-    def call #things that should only happen once
-      puts "Welcome! Take a look at today's new beauty arrivals: 💄"
-      get_products #scrapes products 
+    def call 
+      puts "#{@@blu}Welcome! Take a look at today's new beauty arrivals:💄#{@@white}"
+      get_products
       list_products
       # get_descriptions
       selection
@@ -13,12 +15,12 @@ class SephoraScraper::CLI
     end
 
     def get_products
-      @products = SephoraScraper::Product.all
-      # binding.pry
+      SephoraScraper::Scraper.product_list
+      binding.pry
     end
 
-    def list_products #SS::Product.all, iterate over that
-      @products.each.with_index(1) do |product, index|
+    def list_products 
+      SephoraScraper::Product.all.each.with_index(1) do |product, index|
         puts "#{index}. #{product.name} by #{product.brand}."
       end
     end
